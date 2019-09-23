@@ -1,0 +1,14 @@
+﻿@model IEnumerable<NopCommerce.Api.SampleApplication.DTOs.CustomerApi>
+<ul>
+    @foreach (var customer in Model)
+    {
+    <li>
+        @customer.FirstName @customer.LastName - @Html.RouteLink("Update Customer", "UpdateCustomer", new { customerId = customer.Id }) -
+        @Html.RouteLink("Delete Customer", "DeleteCustomer", new { customerId = customer.Id }) -
+        @Html.ActionLink("Get Orders", "GetOrders", new { customerId = customer.Id })
+    </li>
+    }
+</ul>
+<li>
+    @Html.RouteLink("Create New Customers", "CreateCustomer")
+</li>   
